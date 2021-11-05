@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const FaviconsPlugin = require('favicons-webpack-plugin')
+const ProgressPlugin = require('progress-webpack-plugin')
 
 module.exports = {
     context: path.resolve(__dirname, "assets"),
@@ -62,6 +64,21 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin()
+        new HTMLWebpackPlugin(),
+        new FaviconsPlugin({
+            logo: 'src/favicon.png',
+            cache: true,
+            inject: true,
+            // outputPath: '/public/static',
+            mode: 'auto',
+            manifest: './src/manifest.json'
+        }),
+        new MiniCssExtractPlugin(),
+        new ProgressPlugin({
+            handler(percentage, message, ...args) {
+                console.log(`${(percentage * 100).toFixed()}% ${message}`, ...args);
+            }
+          })
+          
     ]
 }

@@ -1,0 +1,12 @@
+{
+    "appName": "boilerplate",
+    "appDescription": "Boilerplate with Webpack, tailwind",
+    "developerName": "Ashutosh Mishra",
+    "developerURL": "a-mishra@github.io",
+    "background": "#ddd",
+    "theme_color": "#333",
+    "icons": {
+      "coast": false,
+      "yandex": false
+    }
+  }
